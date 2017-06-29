@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+.roboto {
+    font-family: 'Roboto';
+}
+
+.medium-text {
+    font-size: 1.5em;
+}
+
+.larger-text {
+    font-size: 3em;
+}
+
+footer {
+width: 100%;
+height: 100px;
+bottom: 0;
+position: absolute;
+}
