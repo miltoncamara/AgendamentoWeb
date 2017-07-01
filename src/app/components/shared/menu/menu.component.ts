@@ -7,9 +7,14 @@ import { Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
 
+  logout() {
+    localStorage.removeItem('agendamento.token');
+    localStorage.removeItem('agendamento.usuario');
+    this.router.navigateByUrl('/login');
+  }
 }

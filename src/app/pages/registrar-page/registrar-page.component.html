@@ -1,0 +1,52 @@
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title pacifico larger-text">
+        Agendamento Web
+      </h1>
+
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="notification is-danger" *ngIf="errors.length > 0">
+            <ul>
+              <li *ngFor="let error of errors">{{ error.message }}</li>
+            </ul>
+          </div>
+          <form [formGroup]="form">
+
+            <p class="control">
+              <input class="input is-large" type="text" placeholder="Razão Social" formControlName="razaoSocial">
+              <span class="tag is-danger" *ngIf="!form.controls.razaoSocial.valid && !form.controls.razaoSocial.pristine">Razão Social Inválida</span>
+            </p>
+
+            <p class="control">
+              <input class="input is-large" type="text" placeholder="CNPJ" formControlName="cnpj">
+              <span class="tag is-danger" *ngIf="!form.controls.cnpj.valid && !form.controls.cnpj.pristine">CNPJ inválido</span>
+            </p>
+
+            <p class="control" id="emailControl">
+              <input class="input is-large" type="email" placeholder="E-mail" formControlName="email">
+              <span class="tag is-danger" *ngIf="!form.controls.email.valid && !form.controls.email.pristine">E-mail inválido</span>
+            </p>
+        
+            <p class="control">
+              <input class="input is-large" type="password" placeholder="Senha" formControlName="senha">
+              <span class="tag is-danger" *ngIf="!form.controls.senha.valid && !form.controls.senha.pristine">Senha deverá ter entre 4 e 8 caracteres</span>
+            </p>
+
+            <p class="control">
+              <input class="input is-large" type="password" placeholder="Confirmar Senha" formControlName="confirmarSenha">
+              <span class="tag is-danger" *ngIf="!form.controls.confirmarSenha.valid && !form.controls.confirmarSenha.pristine">Senha deverá ter entre 4 e 8 caracteres</span>
+            </p>
+
+            <p>
+              <button (click)="submit()" class="button is-primary is-inverted is-outlined is-large is-fullwidth" [disabled]="!form.valid">CADASTRAR</button>
+              <br>              
+              <a routerLink="/login" class="button is-link is-fullwidth">VOLTAR PARA TELA DE LOGIN</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
