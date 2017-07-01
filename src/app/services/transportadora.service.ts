@@ -8,8 +8,7 @@ export class TransportadoraService {
 
     constructor(private http: Http) { }
 
-    registrar(data: any) {
-        console.log(data);
+    registrar(data: any) {        
        return this.http
             .post(environment.serviceUrl + 'v1/transportadoras', data)
             .map((res: Response) => res.json());
