@@ -6,12 +6,12 @@ import { TransportadoraService } from "app/services/transportadora.service";
 @Component({
   selector: 'app-registrar-page',
   templateUrl: './registrar-page.component.html',
-    providers: [TransportadoraService]
+  providers: [TransportadoraService]
 })
 export class RegistrarPageComponent implements OnInit {
 
   public form: FormGroup;
-  public errors: any[] = [];
+  public notifications: any[] = [];
 
   constructor(private fb: FormBuilder, private router: Router, private servico: TransportadoraService) {
     this.form = this.fb.group({
@@ -49,8 +49,8 @@ export class RegistrarPageComponent implements OnInit {
   submit() {
     this.servico.registrar(this.form.value).subscribe(result => {
       this.router.navigateByUrl('/');
-    }, error => {
-      this.errors = JSON.parse(error._body).errors;
+    }, erros => {
+      this.notifications = JSON.parse(erros._body).erros;      
     });
   }
 

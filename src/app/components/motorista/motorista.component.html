@@ -1,0 +1,35 @@
+<section class="hero is-fullheight">
+  <div class="hero-body">
+    <div class="container has-text-centered">
+      <h1 class="title pacifico medium-text">
+        Cadastro de Motoristas
+      </h1>
+      <div class="columns">
+        <div class="column is-half is-offset-one-quarter">
+          <div class="notification is-danger" *ngIf="notifications.length > 0">
+            <ul>
+              <li *ngFor="let erro of notifications">{{ erro }}</li>
+            </ul>
+          </div>
+
+          <form [formGroup]="form">
+            
+            <p class="control">
+              <input class="input is-large" type="text" placeholder="Nome" formControlName="nome" [ngClass]=" {'is-danger': (!form.controls.nome.valid && !form.controls.nome.pristine) }">
+              <span class="tag is-danger" *ngIf="!form.controls.nome.valid && !form.controls.nome.pristine">O nome deverá conter entre 2 e 150 caracteres</span>
+            </p>
+
+            <p class="control">
+              <input class="input is-large" type="text" placeholder="CNH" formControlName="cnh" [ngClass]=" {'is-danger': (!form.controls.cnh.valid && !form.controls.cnh.pristine) }">
+              <span class="tag is-danger" *ngIf="!form.controls.cnh.valid && !form.controls.cnh.pristine">CNH inválida</span>
+            </p>
+
+            <p>
+              <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">REGISTRAR</button>
+            </p>                  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

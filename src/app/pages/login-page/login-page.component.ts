@@ -11,11 +11,11 @@ import { AuthService } from "app/services/auth.service";
 })
 export class LoginPageComponent implements OnInit {
   public form: FormGroup;
-  public erros: any[] = [];
+  public notifications: any[] = [];
 
   constructor(private fb: FormBuilder, private servico: AuthService, private router: Router) {
     this.form = this.fb.group({
-      email: ['', Validators.compose([        
+      email: ['', Validators.compose([
         Validators.required,
         CustomValidator.EmailValidator
       ])],
@@ -44,8 +44,8 @@ export class LoginPageComponent implements OnInit {
         localStorage.setItem('agendamento.token', result.token);
         localStorage.setItem('agendamento.usuario', JSON.stringify(result.usuario));
         this.router.navigateByUrl('/home');
-      }, error => {
-        this.erros = JSON.parse(error._body).erros;
+      }, erros => {
+        this.notifications = JSON.parse(erros._body).erros;
       });
   }
 }

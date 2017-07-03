@@ -12,6 +12,9 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { MenuComponent } from './components/shared/menu/menu.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
+// Components
+import { MotoristaComponent } from './components/motorista/motorista.component';
+
 // Pages
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MotoristasPageComponent } from './pages/motoristas-page/motoristas-page.component';
@@ -40,7 +43,8 @@ import { VeiculoService } from "app/services/veiculo.service";
     ReservasPageComponent,
     RegistrarPageComponent,
     SairPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    MotoristaComponent
   ],
   imports: [
     BrowserModule,

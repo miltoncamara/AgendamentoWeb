@@ -6,9 +6,9 @@
       </h1>
       <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-          <div class="notification is-danger" *ngIf="erros.length > 0">
+          <div class="notification is-danger" *ngIf="notifications.length > 0">
             <ul>
-              <li *ngFor="let erro of erros">{{ erro }}</li>
+              <li *ngFor="let erro of notifications">{{ erro }}</li>
             </ul>
           </div>
 
@@ -19,7 +19,7 @@
             </p>
 
             <p class="control">
-              <input class="input is-large" type="senha" placeholder="Senha" formControlName="senha" [ngClass]=" {'is-danger': (!form.controls.senha.valid && !form.controls.senha.pristine) }">
+              <input class="input is-large" type="password" placeholder="Senha" formControlName="senha" [ngClass]=" {'is-danger': (!form.controls.senha.valid && !form.controls.senha.pristine) }">
               <span class="tag is-danger" *ngIf="!form.controls.senha.valid && !form.controls.senha.pristine">Senha inválida</span>
             </p>
 

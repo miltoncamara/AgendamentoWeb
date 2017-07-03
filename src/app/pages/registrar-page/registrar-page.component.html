@@ -7,9 +7,9 @@
 
       <div class="columns">
         <div class="column is-half is-offset-one-quarter">
-          <div class="notification is-danger" *ngIf="errors.length > 0">
+          <div class="notification is-danger" *ngIf="notifications.length > 0">
             <ul>
-              <li *ngFor="let error of errors">{{ error.message }}</li>
+              <li *ngFor="let erro of notifications">{{ erro }}</li>
             </ul>
           </div>
           <form [formGroup]="form">
