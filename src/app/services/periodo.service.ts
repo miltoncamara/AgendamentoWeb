@@ -5,11 +5,13 @@ import { ServiceBase } from "app/services/service.base";
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class TransportadoraService extends ServiceBase {
+export class PeriodoService extends ServiceBase {
 
-    registrar(data: any) {        
-       return this.http
-            .post(environment.serviceUrl + 'v1/transportadoras', data)
-            .map(super.extractData);
+    obterTodos() {
+
+        return this.http
+            .get(environment.serviceUrl + 'v1/periodos', super.headerOptions())
+            .map(super.extractData)
+            .catch((super.serviceErro));
     }
 }

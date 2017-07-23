@@ -1,0 +1,94 @@
+<hr/>
+<h2 class="title pacifico medium-text">
+  Notas Fiscais
+</h2>
+
+<form [formGroup]="form">
+  <div class="columns">
+
+    <div class="column is-4">
+      <div class="field is-horizontal">
+        <div class="field-label is-medium">
+          <label class="label">Número:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Número" formControlName="numero" [ngClass]=" {'is-danger': (!form.controls.numero.valid && !form.controls.numero.pristine) }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-4">
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">Série:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Série" formControlName="serie" [ngClass]=" {'is-danger': (!form.controls.serie.valid && !form.controls.serie.pristine) }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-2">
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">Emissão:</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <input class="input" type="text" placeholder="Emissão" formControlName="emissao" [ngClass]=" {'is-danger': (!form.controls.emissao.valid && !form.controls.emissao.pristine) }">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="column is-2">
+      <div class="field is-horizontal">
+        <div class="field-label">
+          <label class="label">&nbsp;</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button (click)="addItem(this)" class="button is-success is-fullwidth"><i class="fa fa-plus"></i>&nbsp;&nbsp;ADD</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</form>
+<div class="columns">
+  <div class="column is-12">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="has-text-centered">Número</th>
+          <th class="has-text-centered">Série</th>
+          <th class="has-text-centered">Emissão</th>
+          <th class="has-text-centered">&nbsp;</th>
+          <th></th>
+        </tr>
+      </thead>      
+      <tbody>
+        <tr *ngFor="let nota of notas">
+          <td>{{ nota.numero }}</td>
+          <td>{{ nota.serie }}</td>
+          <td>{{ nota.emissao }}</td>
+          <td><a class="button is-small is-danger" (click)="removerItem(nota)">Remover</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

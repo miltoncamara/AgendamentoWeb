@@ -1,0 +1,121 @@
+<app-header></app-header>
+
+<section class="hero is-fullheight">
+  <div>
+    <div class="container">
+
+      <br/>
+
+      <form [formGroup]="form">
+        <div class="columns">
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label is-medium">
+                <label class="label">Placa:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="placa">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Renavam:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="renavam">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-3">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Modelo:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="modelo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-3">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Cor:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="cor">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">&nbsp;</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <button (click)="buscar(this)" class="button is-primary is-fullwidth"><i class="fa fa-search"></i>&nbsp;&nbsp;Consultar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <hr/>
+      <a routerLink="/veiculos" class="is-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Adicionar novo Veículo</a>
+      <div class="columns">
+        <div class="column is-12">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="has-text-centered">ID</th>
+                <th class="has-text-centered">Placa</th>
+                <th class="has-text-centered">Renavam</th>
+                <th class="has-text-centered">Modelo</th>
+                <th class="has-text-centered">Cor</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let veiculo of veiculos">
+                <td>{{ veiculo.id }}</td>
+                <td>{{ veiculo.placa }}</td>
+                <td>{{ veiculo.renavam }}</td>
+                <td>{{ veiculo.modelo }}</td>
+                <td>{{ veiculo.cor }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

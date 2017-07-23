@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <section class="hero is-fullheight">
   <div class="hero-body">
     <div class="container has-text-centered">
@@ -13,7 +15,7 @@
           </div>
 
           <form [formGroup]="form">
-            
+
             <p class="control">
               <input class="input is-large" type="text" placeholder="Nome" formControlName="nome" [ngClass]=" {'is-danger': (!form.controls.nome.valid && !form.controls.nome.pristine) }">
               <span class="tag is-danger" *ngIf="!form.controls.nome.valid && !form.controls.nome.pristine">O nome deverá conter entre 2 e 150 caracteres</span>
@@ -26,10 +28,12 @@
 
             <p>
               <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">REGISTRAR</button>
-            </p>                  
+            </p>
           </form>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<app-footer></app-footer>

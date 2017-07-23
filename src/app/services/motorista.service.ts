@@ -1,22 +1,38 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { environment } from '../../environments/environment';
+import { ServiceBase } from "app/services/service.base";
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class MotoristaService {
-
-    constructor(private http: Http) { }
-
+export class MotoristaService extends ServiceBase {
+   
     registrar(data: any) {
 
-        var token = localStorage.getItem('agendamento.token');
-        let headers = new Headers({ 'Content-Type': 'application/json' });
-
-        headers.append('Authorization', `Bearer ${token}`);
-        let options = new RequestOptions({ headers: headers });
         return this.http
-            .post(environment.serviceUrl + 'v1/motoristas', data, options)
-            .map((res: Response) => res.json());
+            .post(environment.serviceUrl + 'v1/motoristas', data, super.headerOptions())
+            .map(super.extractData)
+            .catch((super.serviceErro));
+    }
+
+    obterTodos() {
+
+        return this.http
+            .get(environment.serviceUrl + 'v1/motoristas', super.headerOptions())
+            .map(super.extractData)
+            .catch((super.serviceErro));
+    }
+
+    buscar(data: any) {
+
+        let params = new URLSearchParams();
+
+        for (let key in data)
+            params.set(key, data[key]);
+
+        return this.http
+            .get(environment.serviceUrl + 'v1/motoristas/filtro/?' + params.toString(), super.headerOptions())
+            .map(super.extractData)
+            .catch((super.serviceErro));
     }
 }

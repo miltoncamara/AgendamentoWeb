@@ -5,11 +5,11 @@ import { Router } from '@angular/router';
 import { AuthService } from "app/services/auth.service";
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
+  selector: 'app-login',
+  templateUrl: './login.component.html',
   providers: [AuthService]
 })
-export class LoginPageComponent implements OnInit {
+export class LoginComponent implements OnInit {
   public form: FormGroup;
   public notifications: any[] = [];
 
@@ -25,12 +25,6 @@ export class LoginPageComponent implements OnInit {
         Validators.required
       ])]
     });
-
-    var token = localStorage.getItem('agendamento.token');
-
-    if (token) {
-      this.router.navigateByUrl('/home');
-    }
   }
 
   ngOnInit() {

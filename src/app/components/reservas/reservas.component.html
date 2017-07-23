@@ -1,0 +1,90 @@
+<app-header></app-header>
+
+<section class="hero is-fullheight">
+    <div>
+        <div class="container">
+
+            <hr/>
+            <h1 class="title pacifico medium-text">
+                Cadastro de Reservas
+            </h1>
+
+            <form [formGroup]="form">
+                <div class="columns">
+                    <div class="column is-12">
+                        <div class="notification is-danger" *ngIf="notifications.length > 0">
+                            <ul>
+                                <li *ngFor="let erro of notifications">{{ erro }}</li>
+                            </ul>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-medium">
+                                <label class="label">Motorista:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <span class="select is-medium is-fullwidth">
+                                            <select class="form-control" formControlName="motoristaId" id="motoristaId">
+                                                <option *ngFor="let motorista of motoristas" value="{{motorista.id}}" >{{ motorista.nome }}</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-medium">
+                                <label class="label">Veículo:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <span class="select is-medium is-fullwidth">
+                                            <select class="form-control" formControlName="veiculoId" id="veiculoId">
+                                                <option *ngFor="let veiculo of veiculos" value="{{veiculo.id}}" >{{ veiculo.placa }}</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="field is-horizontal">
+                            <div class="field-label is-medium">
+                                <label class="label">Período:</label>
+                            </div>
+                            <div class="field-body">
+                                <div class="field">
+                                    <div class="control">
+                                        <span class="select is-medium is-fullwidth">
+                                            <select class="form-control" formControlName="periodoId" id="periodosId">
+                                                <option *ngFor="let periodo of periodos" value="{{periodo.id}}" >{{ periodo.inicio  | date: 'dd/MM/yyyy HH:mm' }} - {{ periodo.termino  | date: 'dd/MM/yyyy HH:mm' }}</option>
+                                            </select>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </form>
+
+            <app-nota-fiscal></app-nota-fiscal>
+
+            <hr/>
+            <p>
+                <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">REGISTRAR</button>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<app-footer></app-footer>

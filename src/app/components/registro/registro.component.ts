@@ -4,11 +4,11 @@ import { Router } from '@angular/router';
 import { TransportadoraService } from "app/services/transportadora.service";
 
 @Component({
-  selector: 'app-registrar-page',
-  templateUrl: './registrar-page.component.html',
+  selector: 'app-registro',
+  templateUrl: './registro.component.html',
   providers: [TransportadoraService]
 })
-export class RegistrarPageComponent implements OnInit {
+export class RegistroComponent implements OnInit {
 
   public form: FormGroup;
   public notifications: any[] = [];

@@ -1,0 +1,49 @@
+<app-header></app-header>
+
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container has-text-centered">
+            <h1 class="title pacifico medium-text">
+                Cadastro de Veículos
+            </h1>
+            <div class="columns">
+                <div class="column is-half is-offset-one-quarter">
+                    <div class="notification is-danger" *ngIf="notifications.length > 0">
+                        <ul>
+                            <li *ngFor="let erro of notifications">{{ erro }}</li>
+                        </ul>
+                    </div>
+
+                    <form [formGroup]="form">
+
+                        <p class="control">
+                            <input class="input is-large" type="text" placeholder="Placa" formControlName="placa" [ngClass]=" {'is-danger': (!form.controls.placa.valid && !form.controls.placa.pristine) }">
+                            <span class="tag is-danger" *ngIf="!form.controls.placa.valid && !form.controls.placa.pristine">Digite uma Placa válida. Ex: AAA-1111</span>
+                        </p>
+
+                        <p class="control">
+                            <input class="input is-large" type="text" placeholder="Renavam" formControlName="renavam" [ngClass]=" {'is-danger': (!form.controls.renavam.valid && !form.controls.renavam.pristine) }">
+                            <span class="tag is-danger" *ngIf="!form.controls.renavam.valid && !form.controls.renavam.pristine">O Renavam informado é inválido.</span>
+                        </p>
+
+                        <p class="control">
+                            <input class="input is-large" type="text" placeholder="Modelo" formControlName="modelo" [ngClass]=" {'is-danger': (!form.controls.modelo.valid && !form.controls.modelo.pristine) }">
+                            <span class="tag is-danger" *ngIf="!form.controls.modelo.valid && !form.controls.modelo.pristine">O campo Modelo não pode ultrapassar 50 caracteres</span>
+                        </p>
+
+                        <p class="control">
+                            <input class="input is-large" type="text" placeholder="Cor" formControlName="cor" [ngClass]=" {'is-danger': (!form.controls.cor.valid && !form.controls.cor.pristine) }">
+                            <span class="tag is-danger" *ngIf="!form.controls.cor.valid && !form.controls.cor.pristine">O campo Cor não pode ultrapassar 50 caracteres</span>
+                        </p>
+
+                        <p>
+                            <button (click)="submit()" class="button is-primary is-outlined is-large is-fullwidth" [disabled]="!form.valid">REGISTRAR</button>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

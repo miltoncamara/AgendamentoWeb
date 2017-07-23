@@ -1,0 +1,86 @@
+<app-header></app-header>
+
+<section class="hero is-fullheight">
+  <div>
+    <div class="container">
+      <br/>
+
+      <form [formGroup]="form">
+        <div class="columns">
+
+          <div class="column is-8">
+            <div class="field is-horizontal">
+              <div class="field-label is-medium">
+                <label class="label">Nome:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="nome">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">CNH:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="cnh">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">&nbsp;</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <button (click)="buscar(this)" class="button is-primary is-fullwidth"><i class="fa fa-search"></i>&nbsp;&nbsp;Consultar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <hr/>
+      <a routerLink="/motoristas" class="is-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Adicionar novo Motorista</a>
+      <div class="columns">
+        <div class="column is-12">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="has-text-centered">ID</th>
+                <th class="has-text-centered">Nome</th>
+                <th class="has-text-centered">CNH</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let motorista of motoristas">
+                <td>{{ motorista.id }}</td>
+                <td>{{ motorista.nome }}</td>
+                <td>{{ motorista.cnh }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

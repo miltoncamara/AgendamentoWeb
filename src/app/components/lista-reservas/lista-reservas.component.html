@@ -1,0 +1,136 @@
+<app-header></app-header>
+
+<section class="hero is-fullheight">
+  <div>
+    <div class="container">
+
+      <br/>
+
+      <form [formGroup]="form">
+        <div class="columns">
+
+          <div class="column is-3">
+            <div class="field is-horizontal">
+              <div class="field-label is-medium">
+                <label class="label">Motorista:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="motorista">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Veículo:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="veiculo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-1">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Protocolo:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="protocolo">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">De:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="inicio">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+           <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">Até:</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <input class="input" type="text" formControlName="termino">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-2">
+            <div class="field is-horizontal">
+              <div class="field-label">
+                <label class="label">&nbsp;</label>
+              </div>
+              <div class="field-body">
+                <div class="field">
+                  <div class="control">
+                    <button (click)="buscar(this)" class="button is-primary is-fullwidth"><i class="fa fa-search"></i>&nbsp;&nbsp;Consultar</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
+      <hr/>
+      <a routerLink="/reservas" class="is-success"><i class="fa fa-plus"></i>&nbsp;&nbsp;Adicionar nova Reserva</a>
+      <div class="columns">
+        <div class="column is-12">
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th class="has-text-centered">ID</th>
+                <th class="has-text-centered">Motorista</th>
+                <th class="has-text-centered">Veículo</th>
+                <th class="has-text-centered">Protocolo</th>
+                <th class="has-text-centered">Período</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let reserva of reservas">
+                <td>{{ reserva.id }}</td>
+                <td>{{ reserva.motorista }}</td>
+                <td>{{ reserva.veiculo }}</td>
+                <td>{{ reserva.protocolo }}</td>
+                <td>{{ reserva.inicio | date: 'dd/MM/yyyy HH:mm' }} - {{ reserva.termino | date: 'dd/MM/yyyy HH:mm' }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>
