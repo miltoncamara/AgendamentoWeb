@@ -11,16 +11,14 @@ export class ReservaService extends ServiceBase {
 
         return this.http
             .post(environment.serviceUrl + 'v1/reservas', data, super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 
     obterTodos() {
 
         return this.http
             .get(environment.serviceUrl + 'v1/reservas', super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 
     buscar(data: any) {
@@ -32,7 +30,6 @@ export class ReservaService extends ServiceBase {
 
         return this.http
             .get(environment.serviceUrl + 'v1/reservas/filtro/?' + params.toString(), super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 }

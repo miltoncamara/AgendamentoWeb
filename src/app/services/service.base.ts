@@ -16,22 +16,7 @@ export abstract class ServiceBase {
         headers.append('Authorization', `Bearer ${token}`);
         return new RequestOptions({ headers: headers });
     }
-
-     protected serviceErro(erro: Response | any) {
-        
-        let errMsg: string;
-
-        if (erro instanceof Response) {
-            if (erro.status == 401){
-                this.router.navigateByUrl('/login');
-            }          
-        } else {
-            errMsg = erro.message ? erro.message : erro.toString();
-        }
-        return Observable.throw(erro);
-    }
-
-     protected extractData(response: Response) {
+    protected extractData(response: Response) {
         let body = response.json();
         return body.dados || {};
     }

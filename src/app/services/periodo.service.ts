@@ -11,7 +11,6 @@ export class PeriodoService extends ServiceBase {
 
         return this.http
             .get(environment.serviceUrl + 'v1/periodos', super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 }

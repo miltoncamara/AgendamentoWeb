@@ -11,16 +11,14 @@ export class VeiculoService extends ServiceBase {
 
         return this.http
             .post(environment.serviceUrl + 'v1/veiculos', data, super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 
     obterTodos() {
 
         return this.http
             .get(environment.serviceUrl + 'v1/veiculos', super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 
 
@@ -33,7 +31,6 @@ export class VeiculoService extends ServiceBase {
 
         return this.http
             .get(environment.serviceUrl + 'v1/veiculos/filtro/?' + params.toString(), super.headerOptions())
-            .map(super.extractData)
-            .catch((super.serviceErro));
+            .map(super.extractData);
     }
 }

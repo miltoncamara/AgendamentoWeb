@@ -94,7 +94,7 @@ export class ReservasComponent implements OnInit {
     this.servicoReserva.registrar(JSON.stringify(dados)).subscribe(result => {
       this.servicoNotaFiscal.limpar();
       this.router.navigateByUrl('/reservas/lista');
-    }, erros => {
+    }, erros => {      
       this.notifications = JSON.parse(erros._body).erros;
     });
 
