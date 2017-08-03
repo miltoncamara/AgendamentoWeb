@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { CustomValidator } from '../../validators/custom.validator';
 import { ReservaService } from "app/services/reserva.service";
 
 @Component({
-  selector: 'app-lista-reservas',
-  templateUrl: './lista-reservas.component.html',
+  selector: 'app-reservas-lista',
+  templateUrl: './reservas-lista.component.html',
   providers: [ReservaService]
 })
-export class ListaReservasComponent implements OnInit {
+export class ReservasListaComponent implements OnInit {
 
   private reservas;
   public form: FormGroup;

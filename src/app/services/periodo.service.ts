@@ -10,7 +10,7 @@ export class PeriodoService extends ServiceBase {
     obterTodos() {
 
         return this.http
-            .get(environment.serviceUrl + 'v1/periodos', super.headerOptions())
+            .get(environment.serviceUrl + 'v1/periodos/listar', super.headerOptions())
             .map(super.extractData);
     }
 }

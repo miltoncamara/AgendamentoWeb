@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { CustomValidator } from '../../validators/custom.validator';
 import { Router } from '@angular/router';
 import { ReservaService } from "app/services/reserva.service";
 import { MotoristaService } from "app/services/motorista.service";
@@ -21,6 +20,7 @@ export class ReservasComponent implements OnInit {
   public motoristas: any[] = [];
   public veiculos: any[] = [];
   public periodos: any[] = [];
+  public notas: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -30,7 +30,7 @@ export class ReservasComponent implements OnInit {
     private servicoPeriodo: PeriodoService,
     private servicoNotaFiscal: NotaFiscalService,
     private router: Router) {
-   
+
     this.form = this.fb.group({
       motoristaId: ['', Validators.compose([
         Validators.required
@@ -83,18 +83,20 @@ export class ReservasComponent implements OnInit {
       notasFiscais: []
     };
 
-    for (let i of this.servicoNotaFiscal.obterNotasFiscais()) {
+    this.notas = this.servicoNotaFiscal.obterNotasFiscais();
+
+    for (let i of this.notas) {
       dados.notasFiscais.push({
         numero: i.numero,
         serie: i.serie,
         emissao: i.emissao
       })
     }
-    
+
     this.servicoReserva.registrar(JSON.stringify(dados)).subscribe(result => {
       this.servicoNotaFiscal.limpar();
       this.router.navigateByUrl('/reservas/lista');
-    }, erros => {      
+    }, erros => {
       this.notifications = JSON.parse(erros._body).erros;
     });
 

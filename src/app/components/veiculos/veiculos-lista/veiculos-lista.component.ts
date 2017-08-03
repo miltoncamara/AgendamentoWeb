@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { CustomValidator } from '../../validators/custom.validator';
 import { VeiculoService } from "app/services/veiculo.service";
 
 @Component({
-  selector: 'app-lista-veiculos',
-  templateUrl: './lista-veiculos.component.html',
+  selector: 'app-veiculos-lista',
+  templateUrl: './veiculos-lista.component.html',
   providers: [VeiculoService]
 })
-export class ListaVeiculosComponent implements OnInit {
+export class VeiculosListaComponent implements OnInit {
 
   private veiculos;
   public form: FormGroup;

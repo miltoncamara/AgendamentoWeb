@@ -17,7 +17,7 @@ export class ReservaService extends ServiceBase {
     obterTodos() {
 
         return this.http
-            .get(environment.serviceUrl + 'v1/reservas', super.headerOptions())
+            .get(environment.serviceUrl + 'v1/reservas/listar', super.headerOptions())
             .map(super.extractData);
     }
 
@@ -29,7 +29,7 @@ export class ReservaService extends ServiceBase {
             params.set(key, data[key]);
 
         return this.http
-            .get(environment.serviceUrl + 'v1/reservas/filtro/?' + params.toString(), super.headerOptions())
+            .get(environment.serviceUrl + 'v1/reservas/listar/?' + params.toString(), super.headerOptions())
             .map(super.extractData);
     }
 }

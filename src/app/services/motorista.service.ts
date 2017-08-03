@@ -17,7 +17,7 @@ export class MotoristaService extends ServiceBase {
     obterTodos() {
 
         return this.http
-            .get(environment.serviceUrl + 'v1/motoristas', super.headerOptions())
+            .get(environment.serviceUrl + 'v1/motoristas/listar', super.headerOptions())
             .map(super.extractData);
     }
 
@@ -29,7 +29,7 @@ export class MotoristaService extends ServiceBase {
             params.set(key, data[key]);
 
         return this.http
-            .get(environment.serviceUrl + 'v1/motoristas/filtro/?' + params.toString(), super.headerOptions())
+            .get(environment.serviceUrl + 'v1/motoristas/listar?' + params.toString(), super.headerOptions())
             .map(super.extractData);
     }
 }
