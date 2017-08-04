@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -47,6 +47,7 @@ import { FooterComponent } from './components/shared/footer/footer.component';
     VeiculoModule,
     ReservaModule
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   providers: [AuthService, TransportadoraService, PeriodoService],
   bootstrap: [AppComponent]
 })
